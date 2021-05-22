@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>To Do List</title>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+    	tr.border-bottom td 
+    	{
+    		width: 100%
+    	}
+
+    	div.header-style {
+		  width: 100%;
+		  border: none;
+		  padding: 50px;
+		  margin: 20px;
+		  background-color: #622569;
+		  font-family: 'serif';
+		  color: white;
+		  text-align: center; 
+		}
+
+		input {
+  			width: 100%;
+  			
+		}
+
+		div.edit-todo {
+			width: 800px;
+			align-content: center;
+			border: none;
+			padding: 20px;
+			margin: 10px;
+			margin-left: 200px;
+			background-color: #b8a9c9;
+			color: black;
+			text-align: left;
+			font-family: Georgia, serif;
+  			font-size: 16px;
+		}
+
+		label {
+			font-family: Verdana, sans-serif;
+			font-size: 15px;
+			font-weight: bold;
+		}
+
+    </style>
+</head>
+<body>
+	<div class="header-style">
+		<h1> Update task </h1>
+	</div>
+	<div class="edit-todo">
+		<form action="/updateTodo/{{task_to_edit1.id}}/" method="post"> {% csrf_token %}
+		<label>current task: </label>{{task_to_edit1.content_title}}
+		<br/>
+		<label>current description: </label> {{task_to_edit1.content}}
+		<br/>
+		<label>date created: </label> {{task_to_edit1.date_created}}
+		<br/>
+		<label>date modified: </label> {{task_to_edit1.date_modified}}
+		<br/>
+		<label>update task: </label><input type="text" name="edited_content_title">
+		<label>update description (if required): </label><input type="text" name="edited_content">
+		<br/><br/>
+		<input type="submit" value="Update" style="border-radius: 12px;">
+	</form>
+	</div>
+	
+</body>
+</html>
